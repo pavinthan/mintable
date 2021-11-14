@@ -24,7 +24,7 @@ function Index() {
             <Button children="Buy" />
           </div>
         </div>
-        <div className="p-3 lg:p-10 flex flex-row lg:flex-col">
+        <div className="p-3 lg:p-10 flex flex-row lg:flex-col items-center">
           {tickets.map((item: ITicket) => (
             <TicketCard
               {...item}

@@ -14,16 +14,19 @@ export const getTickets = () =>
   Promise.resolve([
     {
       id: 'silver',
+      available: 10,
       name: 'Silver',
       image: SilverCard,
     },
     {
       id: 'gold',
       name: 'Gold',
+      available: 20,
       image: GoldCard,
     },
     {
       id: 'diamond',
+      available: 30,
       name: 'Diamond',
       image: DiamondCard,
     },

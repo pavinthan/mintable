@@ -1,15 +1,20 @@
 import classNames from 'classnames';
 import { useDrag } from 'react-dnd';
+import type { ITicket } from 'models';
 
-export interface Props {
-  id: string;
-  name: string;
-  image: string;
+export interface Props extends ITicket {
   type?: string;
   className?: string;
 }
 
-function TicketCard({ id, name, type = 'BOX', image, className }: Props) {
+function TicketCard({
+  available,
+  id,
+  name,
+  type = 'BOX',
+  image,
+  className,
+}: Props) {
   const [collected, drag, dragPreview]: any[] = useDrag(() => ({
     type,
     items: { id },
@@ -21,20 +26,18 @@ function TicketCard({ id, name, type = 'BOX', image, className }: Props) {
   return collected.isDragging ? (
     <div ref={dragPreview}>
       <div
-        className={classNames(
-          'flex justify-center filter grayscale contrast-100 opacity-50',
-          className
-        )}
+        className={classNames('flex filter grayscale opacity-50', className)}
       >
-        <img src={image} alt={name} className="object-contain" />
+        <img src={image} alt={name} className="inline" />
       </div>
     </div>
   ) : (
     <div ref={drag} {...collected}>
-      <div
-        className={classNames('flex justify-center cursor-pointer', className)}
-      >
-        <img src={image} alt={name} className="object-contain" />
+      <div className={classNames('flex relative  cursor-pointer', className)}>
+        <div className="absolute -right-2 -top-2 flex items-center justify-center bg-indigo-600 w-10 h-10 rounded-full shadow text-white font-semibold">
+          {available}
+        </div>
+        <img src={image} alt={name} className="inline" />
       </div>
     </div>
   );
