@@ -13,7 +13,7 @@ function TicketFooter({ ticker }: Props) {
         <img src={Ticket} alt="Ticket" />
         <div className="ml-3">
           <h3 className="font-semibold">Draw Tickets</h3>
-          <div>10 Tickets found</div>
+          <div>{ticker.available} Tickets found</div>
           <div>
             Open your tickets and get a chance to win $1000 worth of high
             quality NFTs! Learn More
