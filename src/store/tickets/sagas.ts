@@ -8,6 +8,6 @@ function* getTickets(): Generator<any> {
   return yield call(() => getTicketsAPI());
 }
 
-const sagas = [takeEveryAsync(actions.getTickets.type, getTickets)];
-
-export default sagas;
+export default function* ticketsSaga() {
+  yield takeEveryAsync(actions.getTickets.type, getTickets);
+}
