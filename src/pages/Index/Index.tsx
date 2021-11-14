@@ -3,8 +3,8 @@ import { Button, TicketCard } from 'components';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTickets } from 'store/tickets/actions';
-import { getTicketsSelector } from 'store/tickets/selector';
+import { getTicketsAsync } from 'features/tickets/sagas';
+import { getTicketsSelector } from 'features/tickets/selector';
 import type { ITicket } from 'models';
 
 function Index() {
@@ -12,7 +12,7 @@ function Index() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(getTickets());
+    dispatch(getTicketsAsync());
   }, [dispatch]);
 
   return (

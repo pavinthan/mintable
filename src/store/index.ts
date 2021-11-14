@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -11,23 +11,24 @@ import {
 } from 'redux-persist';
 import persistConfig from 'config/persist';
 import createSagaMiddleware from 'redux-saga';
-import tickets from './tickets';
-import ticketSagas from './tickets/sagas';
+import rootReducers from './reducer';
+import rootSagas from './sagas';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: persistReducer(persistConfig, combineReducers({ tickets })),
+  reducer: persistReducer(persistConfig, rootReducers),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
+      thunk: false,
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat([sagaMiddleware]),
 });
 
-sagaMiddleware.run(ticketSagas);
+sagaMiddleware.run(rootSagas);
 
 export type State = ReturnType<typeof store.getState>;
 
