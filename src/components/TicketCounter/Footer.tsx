@@ -21,8 +21,8 @@ function TicketFooter({ ticker }: Props) {
         </div>
       </div>
       <div>
-        <div>{ticker}</div>
-        <div>
+        <div className="border px-3 py-2 text-center">{ticker.name}</div>
+        <div className="mt-1">
           <Button children="Draw Ticket" />
         </div>
       </div>

@@ -1,13 +1,11 @@
-import TicketPlaceholder from 'assets/images/ticket-placeholder.svg';
 import React from 'react';
-import { Button, TicketCard, TicketFooter } from 'components';
+import { Button, TicketCard, TicketCounter } from 'components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketsAsync } from 'features/tickets/sagas';
 import { getTicketsSelector } from 'features/tickets/selector';
 import type { ITicket } from 'models';
 
 function Index() {
-  const [selected, setSelected] = React.useState(null);
   const tickets = useSelector(getTicketsSelector);
   const dispatch = useDispatch();
 
@@ -35,24 +33,7 @@ function Index() {
         </div>
       </div>
       <div className="flex-1 flex flex-col lg:ml-3 bg-white shadow rounded order-first md:order-last">
-        <div className="flex-1 lg:p-8 p-2 sm:p-4 flex flex-col">
-          <div className="text-center">
-            <h2 className="font-semibold">Collectors Event</h2>
-            <p>Participate and win high quality currated NFTs</p>
-          </div>
-
-          <div className="flex-1 border-2 border-dashed mt-3 selection-none flex flex-col items-center justify-center">
-            <img src={TicketPlaceholder} alt="" />
-            <p className="mt-3 text-gray-500">
-              Drag a ticket or use the button below to draw your tickets
-            </p>
-          </div>
-        </div>
-        {selected && (
-          <div className="border-t hidden lg:flex flex-col">
-            <TicketFooter ticker={selected} />
-          </div>
-        )}
+        <TicketCounter />
       </div>
     </div>
   );

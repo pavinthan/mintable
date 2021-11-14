@@ -17,7 +17,7 @@ function TicketCard({
 }: Props) {
   const [collected, drag, dragPreview]: any[] = useDrag(() => ({
     type,
-    items: { id },
+    item: { id },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -32,7 +32,7 @@ function TicketCard({
       </div>
     </div>
   ) : (
-    <div ref={drag} {...collected}>
+    <div ref={drag}>
       <div className={classNames('flex relative  cursor-pointer', className)}>
         <div className="absolute -right-2 -top-2 flex items-center justify-center bg-indigo-600 w-10 h-10 rounded-full shadow text-white font-semibold">
           {available}

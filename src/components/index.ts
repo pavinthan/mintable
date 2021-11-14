@@ -4,4 +4,4 @@ export * from './Footer';
 export * from './Header';
 export * from './LazyPage';
 export * from './TicketCard';
-export * from './TicketFooter';
+export * from './TicketCounter';

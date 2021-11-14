@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import TicketFooter from './TicketFooter';
+import TicketCounter from './TicketCounter';
 
 test('renders', () => {
-  render(<TicketFooter />);
+  render(<TicketCounter />);
   const linkElement = screen.getByText(/Hello/i);
   expect(linkElement).toBeInTheDocument();
 });

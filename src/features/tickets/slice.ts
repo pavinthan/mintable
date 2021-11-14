@@ -3,10 +3,12 @@ import type { Slice } from '@reduxjs/toolkit';
 import type { ITicket } from 'models';
 
 export interface TicketState {
+  activeId: string | null;
   tickets: ITicket[];
 }
 
 const initialState: TicketState = {
+  activeId: null,
   tickets: [],
 };
 
@@ -20,8 +22,14 @@ export const ticketSlice: Slice<TicketState> = createSlice({
         tickets: action.payload,
       };
     },
+    setActiveId: (state, action) => {
+      return {
+        ...state,
+        activeId: action.payload,
+      };
+    },
   },
 });
 
-export const { getTickets } = ticketSlice.actions;
+export const { getTickets, setActiveId } = ticketSlice.actions;
 export default ticketSlice.reducer;
