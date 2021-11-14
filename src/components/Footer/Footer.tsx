@@ -56,7 +56,7 @@ function ListElement({ items, className = '' }: ElementProps) {
 
 function List({ title, items, children }: ListProps) {
   return (
-    <div className="mt-12 md:mt-0">
+    <div>
       <h3 className="font-semibold tracking-wider">{title}</h3>
       <div className="lg:flex">
         <ListElement items={items} />
@@ -74,16 +74,7 @@ function Footer() {
       </h2>
       <div className="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8 xl:col-span-1">
-            <div className="flex items-center">
-              <img className="h-10" src={Logo} alt="Company name" />
-              <h2 className="ml-3 font-semibold text-xl">Mintable</h2>
-            </div>
-            <a className="flex text-base font-semibold" href="/">
-              Join our community
-            </a>
-          </div>
-          <div className="grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+          <div className="grid grid-cols-2 gap-8 xl:col-span-2">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <List title="My account" items={navigation.account}>
                 <ListElement className="lg:ml-6" items={navigation.profile} />
@@ -94,6 +85,16 @@ function Footer() {
               <List title="Buy an Item" items={navigation.buy} />
               <List title="Legal" items={navigation.legal} />
             </div>
+          </div>
+
+          <div className="mt-12 md:mt-0 space-y-8 xl:col-span-1 order-last lg:order-first">
+            <div className="flex items-center">
+              <img className="h-10" src={Logo} alt="Company name" />
+              <h2 className="ml-3 font-semibold text-xl">Mintable</h2>
+            </div>
+            <a className="flex text-base font-semibold" href="/">
+              Join our community
+            </a>
           </div>
         </div>
       </div>
