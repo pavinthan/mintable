@@ -27,6 +27,9 @@ function Index() {
           </div>
           <div>
             <ul>
+              <li>
+                <TicketCard name="Example" id="1" />
+              </li>
               {tickets.map((item: ITicket) => (
                 <li key={item.id}>
                   <TicketCard name={item.name} id={item.id} />

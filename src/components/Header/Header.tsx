@@ -1,7 +1,17 @@
 import { Disclosure, Menu } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
-import { BellIcon, XIcon, MenuIcon } from '@heroicons/react/outline';
+import { XIcon, MenuIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import classNames from 'classnames';
 import Logo from 'assets/images/logo.svg';
+
+const navigation = [
+  { name: 'Browse', href: '/browse' },
+  { name: 'Discover', href: '/discover' },
+  { name: 'Mint an item', href: '/mint' },
+  { name: 'Vote/DAO', href: '/vote', current: true },
+  { name: 'My Account', href: '/account' },
+  { name: 'Ethereum', href: '/ethereum' },
+];
 
 function Header() {
   return (
@@ -30,18 +40,24 @@ function Header() {
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative">
+                    <div className="relative flex">
                       <input
                         id="search"
                         name="search"
-                        className="block w-full py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className="block w-full py-2 border border-gray-300 rounded-l leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm overflow-hidden"
                         placeholder="Search for anything"
                         type="search"
                       />
 
-                      <div className="absolute bg-indigo-100 inset-y-0 right-0 pr-3 flex items-center pointer-events-none rounded-r">
+                      <div className="z-10 bg-indigo-100 inset-y-0 right-0 pr-3 flex items-center pointer-events-none rounded-r">
                         <Menu>
-                          <Menu.Button>More</Menu.Button>
+                          <Menu.Button className="p-2 flex items-center justify-center">
+                            <span className="hidden lg:flex">Type</span>
+                            <ChevronDownIcon
+                              className="h-5 w-5 text-gray-400 ml-2"
+                              aria-hidden="true"
+                            />
+                          </Menu.Button>
                           <Menu.Items>
                             <Menu.Item>
                               {({ active }) => (
@@ -57,7 +73,7 @@ function Header() {
                         </Menu>
 
                         <SearchIcon
-                          className="h-5 w-5 text-gray-400"
+                          className="h-5 w-5 text-gray-400 hidden lg:flex"
                           aria-hidden="true"
                         />
                       </div>
@@ -81,89 +97,40 @@ function Header() {
                 </div>
               </div>
               <div className="hidden flex-1 lg:flex px-2 lg:ml-6 lg:justify-end lg:space-x-8">
-                <a
-                  href="/browse"
-                  className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  Browse
-                </a>
-                <a
-                  href="/discover"
-                  className="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  Discover
-                </a>
-                <a
-                  href="/mint"
-                  className="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  Mint an item
-                </a>
-                <a
-                  href="/vote"
-                  className="border-transparent text-indigo-600 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  Vote/DAO
-                </a>
-                <a
-                  href="/account"
-                  className="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  My Account
-                </a>
-                <a
-                  href="/ethereum"
-                  className="border-transparent text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-                >
-                  Ethereum
-                </a>
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className={classNames(
+                      'border-transparent  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium',
+                      [item.current ? 'text-indigo-600' : 'text-gray-500']
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-              <a
-                href="/"
-                className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Dashboard
-              </a>
-            </div>
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="flex items-center px-4">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">
-                    Admin
-                  </div>
-                  <div className="text-sm font-medium text-gray-500">
-                    admin@example.com
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 space-y-1">
+              {navigation.map((item) => (
                 <a
-                  href="/"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                  key={item.name}
+                  href={item.href}
+                  className={classNames(
+                    'border-transparent block pl-3 pr-4 py-2 border-l-4 text-base font-medium',
+                    [
+                      item.current
+                        ? 'text-indigo-600'
+                        : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
+                    ]
+                  )}
                 >
-                  Your Profile
+                  {item.name}
                 </a>
-              </div>
+              ))}
             </div>
           </Disclosure.Panel>
         </>
