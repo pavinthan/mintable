@@ -1,6 +1,6 @@
 import { LazyPage } from 'components';
 import { App } from 'layouts';
-import { NoMatch } from 'pages/NoMatch';
+import NoMatch from 'pages/NoMatch';
 import { Routes, Route } from 'react-router-dom';
 
 function Router() {

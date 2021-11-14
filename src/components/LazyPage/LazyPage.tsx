@@ -7,9 +7,7 @@ export interface Props extends RouteProps {
 
 function Lazy({ page }: Props) {
   const Component = React.useMemo(() => {
-    return React.lazy(() =>
-      import(`pages/${page}`).then((module) => module[page])
-    );
+    return React.lazy(() => import(`pages/${page}`));
   }, [page]);
 
   return (
