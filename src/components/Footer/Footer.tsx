@@ -1,4 +1,5 @@
 import Logo from 'assets/images/logo.svg';
+import { name } from 'config/env';
 import type { ReactNode } from 'react';
 
 interface ListItem {
@@ -89,7 +90,7 @@ function Footer() {
 
           <div className="mt-12 md:mt-0 space-y-8 xl:col-span-1 order-last lg:order-first">
             <div className="flex items-center">
-              <img className="h-10" src={Logo} alt="Company name" />
+              <img className="h-10" src={Logo} alt={name} />
               <h2 className="ml-3 font-semibold text-xl">Mintable</h2>
             </div>
             <a className="flex text-base font-semibold" href="/">

@@ -17,28 +17,27 @@ function Index() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="bg-gray-50 flex flex-1 lg:p-8 p-2 sm:p-4">
-        <div className="bg-white shadow rounded">
+      <div className="bg-gray-50 flex flex-1 flex-col lg:flex-row lg:p-8 p-2 sm:p-4">
+        <div className="bg-white shadow rounded w-full lg:w-1/6">
           <div className="flex justify-between lg:p-4 p-1 sm:p-2 border-b items-center">
             <h2 className="font-semibold">Get More Tickets</h2>
-            <div className="flex-1 ml-3">
+            <div className="ml-3">
               <Button children="Buy" />
             </div>
           </div>
-          <div>
-            <ul>
-              <li>
-                <TicketCard name="Example" id="1" />
-              </li>
-              {tickets.map((item: ITicket) => (
-                <li key={item.id}>
-                  <TicketCard name={item.name} id={item.id} />
-                </li>
-              ))}
-            </ul>
+          <div className="p-3 lg:p-10 flex flex-row lg:flex-col">
+            {tickets.map((item: ITicket) => (
+              <TicketCard
+                id={item.id}
+                key={item.id}
+                name={item.name}
+                image={item.image}
+                className="lg:mt-3 px-1 lg:px-0"
+              />
+            ))}
           </div>
         </div>
-        <div className="flex-1 ml-3 bg-white shadow rounded lg:p-8 p-2 sm:p-4">
+        <div className="flex-1 lg:ml-3 bg-white shadow rounded lg:p-8 p-2 sm:p-4 order-first md:order-last">
           Space
         </div>
       </div>

@@ -2,6 +2,7 @@ import { Disclosure, Menu } from '@headlessui/react';
 import { SearchIcon } from '@heroicons/react/solid';
 import { XIcon, MenuIcon, ChevronDownIcon } from '@heroicons/react/outline';
 import classNames from 'classnames';
+import { name } from 'config/env';
 import Logo from 'assets/images/logo.svg';
 
 const navigation = [
@@ -26,12 +27,12 @@ function Header() {
                     <img
                       className="block lg:hidden h-8 w-auto"
                       src={Logo}
-                      alt="Workflow"
+                      alt={name}
                     />
                     <img
                       className="hidden lg:block h-8 w-auto"
                       src={Logo}
-                      alt="Workflow"
+                      alt={name}
                     />
                   </div>
                 </div>

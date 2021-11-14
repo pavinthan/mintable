@@ -1,12 +1,15 @@
+import classNames from 'classnames';
 import { useDrag } from 'react-dnd';
 
 export interface Props {
   id: string;
   name: string;
+  image: string;
   type?: string;
+  className?: string;
 }
 
-function TicketCard({ name, type = 'BOX', id }: Props) {
+function TicketCard({ name, type = 'BOX', id, image, className }: Props) {
   const [collected, drag, dragPreview]: any[] = useDrag(() => ({
     type,
     item: { id },
@@ -16,7 +19,9 @@ function TicketCard({ name, type = 'BOX', id }: Props) {
     <div ref={dragPreview} />
   ) : (
     <div ref={drag} {...collected}>
-      {name}
+      <div className={classNames('flex justify-center', className)}>
+        <img src={image} alt={name} className="object-contain" />
+      </div>
     </div>
   );
 }
