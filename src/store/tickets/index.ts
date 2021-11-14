@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import * as actions from "./actions";
-import type { Slice } from "@reduxjs/toolkit";
-import type { ITicket } from "models";
+import { createSlice } from '@reduxjs/toolkit';
+import * as actions from './actions';
+import type { Slice } from '@reduxjs/toolkit';
+import type { ITicket } from 'models';
 
 export interface TicketState {
   tickets: ITicket[];

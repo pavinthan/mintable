@@ -1,12 +1,12 @@
-import storage from "redux-persist/lib/storage";
-import { encryptTransform } from "redux-persist-transform-encrypt";
-import { secretKey } from "config/env";
+import storage from 'redux-persist/lib/storage';
+import { encryptTransform } from 'redux-persist-transform-encrypt';
+import { secretKey } from 'config/env';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
   storage,
-  whitelist: ["auth"],
+  whitelist: ['auth'],
   transforms: [
     encryptTransform({
       secretKey,

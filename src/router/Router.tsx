@@ -1,7 +1,7 @@
-import { LazyPage } from "components";
-import { App } from "layouts";
-import { NoMatch } from "pages";
-import { Routes, Route } from "react-router-dom";
+import { LazyPage } from 'components';
+import { App } from 'layouts';
+import { NoMatch } from 'pages/NoMatch';
+import { Routes, Route } from 'react-router-dom';
 
 function Router() {
   return (

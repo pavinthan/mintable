@@ -1,4 +1,4 @@
-import { useDrag } from "react-dnd";
+import { useDrag } from 'react-dnd';
 
 export interface Props {
   id: string;
@@ -6,7 +6,7 @@ export interface Props {
   type?: string;
 }
 
-function TicketCard({ name, type = "BOX", id }: Props) {
+function TicketCard({ name, type = 'BOX', id }: Props) {
   const [collected, drag, dragPreview]: any[] = useDrag(() => ({
     type,
     item: { id },

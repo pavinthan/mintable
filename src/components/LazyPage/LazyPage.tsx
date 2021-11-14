@@ -1,5 +1,5 @@
-import React from "react";
-import type { RouteProps } from "react-router";
+import React from 'react';
+import type { RouteProps } from 'react-router';
 
 export interface Props extends RouteProps {
   page: string;
@@ -7,7 +7,9 @@ export interface Props extends RouteProps {
 
 function Lazy({ page }: Props) {
   const Component = React.useMemo(() => {
-    return React.lazy(() => import(`pages/${page}`));
+    return React.lazy(() =>
+      import(`pages/${page}`).then((module) => module[page])
+    );
   }, [page]);
 
   return (

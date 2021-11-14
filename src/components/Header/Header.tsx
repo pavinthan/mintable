@@ -1,7 +1,7 @@
-import { Disclosure, Menu } from "@headlessui/react";
-import { SearchIcon } from "@heroicons/react/solid";
-import { BellIcon, XIcon, MenuIcon } from "@heroicons/react/outline";
-import Logo from "assets/images/logo.svg";
+import { Disclosure, Menu } from '@headlessui/react';
+import { SearchIcon } from '@heroicons/react/solid';
+import { BellIcon, XIcon, MenuIcon } from '@heroicons/react/outline';
+import Logo from 'assets/images/logo.svg';
 
 function Header() {
   return (
@@ -46,7 +46,7 @@ function Header() {
                             <Menu.Item>
                               {({ active }) => (
                                 <a
-                                  className={`${active && "bg-blue-500"}`}
+                                  className={`${active && 'bg-blue-500'}`}
                                   href="/account-settings"
                                 >
                                   Account settings

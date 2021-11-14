@@ -1,9 +1,9 @@
-import { Button, TicketCard } from "components";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-import { useSelector } from "react-redux";
-import { getTickets } from "store/tickets/selector";
-import type { ITicket } from "models";
+import { Button, TicketCard } from 'components';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+import { useSelector } from 'react-redux';
+import { getTickets } from 'store/tickets/selector';
+import type { ITicket } from 'models';
 
 function Index() {
   const tickets = useSelector(getTickets);

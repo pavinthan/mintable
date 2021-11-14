@@ -1,8 +1,8 @@
-import * as actions from "./actions";
-import { call } from "redux-saga/effects";
+import * as actions from './actions';
+import { call } from 'redux-saga/effects';
 // @ts-ignore
-import { takeEveryAsync } from "saga-toolkit";
-import { getTickets as getTicketsAPI } from "services";
+import { takeEveryAsync } from 'saga-toolkit';
+import { getTickets as getTicketsAPI } from 'services';
 
 function* getTickets(): Generator<any> {
   return yield call(() => getTicketsAPI());

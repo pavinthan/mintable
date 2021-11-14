@@ -1,5 +1,5 @@
-import Logo from "assets/images/logo.svg";
-import type { ReactNode } from "react";
+import Logo from 'assets/images/logo.svg';
+import type { ReactNode } from 'react';
 
 interface ListItem {
   name: string;
@@ -19,28 +19,28 @@ interface ListProps {
 
 const navigation = {
   account: [
-    { name: "Create a store", href: "/" },
-    { name: "List an Item for sale", href: "/" },
+    { name: 'Create a store', href: '/' },
+    { name: 'List an Item for sale', href: '/' },
   ],
   profile: [
-    { name: "My Profile", href: "/" },
-    { name: "Browse", href: "/" },
+    { name: 'My Profile', href: '/' },
+    { name: 'Browse', href: '/' },
   ],
   help: [
-    { name: "FAQ", href: "/" },
-    { name: "Mintable guide", href: "/" },
+    { name: 'FAQ', href: '/' },
+    { name: 'Mintable guide', href: '/' },
   ],
   buy: [
-    { name: "Digital Items", href: "/" },
-    { name: "Stores", href: "/" },
+    { name: 'Digital Items', href: '/' },
+    { name: 'Stores', href: '/' },
   ],
   legal: [
-    { name: "Privacy Policy", href: "/" },
-    { name: "Terms of use", href: "/" },
+    { name: 'Privacy Policy', href: '/' },
+    { name: 'Terms of use', href: '/' },
   ],
 };
 
-function ListElement({ items, className = "" }: ElementProps) {
+function ListElement({ items, className = '' }: ElementProps) {
   return (
     <ul className={`mt-4 space-y-4 ${className}`}>
       {items.map((item: ListItem) => (
