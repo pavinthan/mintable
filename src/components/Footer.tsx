@@ -1,10 +1,10 @@
 import Logo from "assets/images/logo.svg";
 import type { ReactNode } from "react";
 
-type ListItem = {
+interface ListItem {
   name: string;
   href: string;
-};
+}
 
 interface ElementProps {
   items: ListItem[];

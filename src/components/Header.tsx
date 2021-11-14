@@ -125,28 +125,10 @@ function Header() {
             <div className="pt-2 pb-3 space-y-1">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <a
-                href="#"
+                href="/"
                 className="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
               >
                 Dashboard
-              </a>
-              <a
-                href="#"
-                className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Team
-              </a>
-              <a
-                href="#"
-                className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Calendar
               </a>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
@@ -160,10 +142,10 @@ function Header() {
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium text-gray-800">
-                    Tom Cook
+                    Admin
                   </div>
                   <div className="text-sm font-medium text-gray-500">
-                    tom@example.com
+                    admin@example.com
                   </div>
                 </div>
                 <button
@@ -176,22 +158,10 @@ function Header() {
               </div>
               <div className="mt-3 space-y-1">
                 <a
-                  href="#"
+                  href="/"
                   className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                 >
                   Your Profile
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                >
-                  Settings
-                </a>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                >
-                  Sign out
                 </a>
               </div>
             </div>
