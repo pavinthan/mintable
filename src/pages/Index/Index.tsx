@@ -5,6 +5,7 @@ import { DndProvider } from 'react-dnd';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicketsAsync } from 'features/tickets/sagas';
 import { getTicketsSelector } from 'features/tickets/selector';
+import Ticket from 'assets/images/ticket.svg';
 import type { ITicket } from 'models';
 
 function Index() {
@@ -37,8 +38,29 @@ function Index() {
             ))}
           </div>
         </div>
-        <div className="flex-1 lg:ml-3 bg-white shadow rounded lg:p-8 p-2 sm:p-4 order-first md:order-last">
-          Space
+        <div className="flex-1 flex flex-col lg:ml-3 bg-white shadow rounded order-first md:order-last">
+          <div className="flex-1 lg:p-8 p-2 sm:p-4 ">Header</div>
+          <div className="border-t hidden lg:flex flex-col">
+            <div className="flex justify-between items-center p-6">
+              <div className="flex items-center">
+                <img src={Ticket} alt="Ticket" />
+                <div className="ml-3">
+                  <h3 className="font-semibold">Draw Tickets</h3>
+                  <div>10 Tickets found</div>
+                  <div>
+                    Open your tickets and get a chance to win $1000 worth of
+                    high quality NFTs! Learn More
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3>Silver Ticket (1)</h3>
+                <div>
+                  <Button children="Draw Ticket" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </DndProvider>

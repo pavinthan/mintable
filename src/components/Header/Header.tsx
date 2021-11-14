@@ -16,7 +16,7 @@ const navigation = [
 
 function Header() {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-white shadow-sm z-10">
       {({ open }) => (
         <>
           <div className="mx-auto px-2 sm:px-4 lg:px-8">
