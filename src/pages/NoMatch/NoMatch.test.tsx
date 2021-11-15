@@ -3,6 +3,6 @@ import NoMatch from './NoMatch';
 
 test('renders', () => {
   render(<NoMatch />);
-  const linkElement = screen.getByText(/Hello/i);
+  const linkElement = screen.getByText(/no match/i);
   expect(linkElement).toBeInTheDocument();
 });

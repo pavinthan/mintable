@@ -1,5 +1,5 @@
 function NoMatch() {
-  return <>NoMatch</>;
+  return <>No Match</>;
 }
 
 export default NoMatch;
